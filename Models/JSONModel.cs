@@ -31,7 +31,6 @@ namespace NRApiClient.Models
             public string Type { get; set; }
             public ICollection<AnswerAlternative> AnswerAlternatives { get; set; }
         }
-
         public class _CaseData
         {
             public string RespondentID { get; set; }

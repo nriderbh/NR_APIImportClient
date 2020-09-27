@@ -7,6 +7,7 @@ namespace NRApiClient.Helpers
 {
     public static class DataMapper
     {
+        //Mapping CSV data line by line to the C# object
         public static List<CSVData> getMappedDataFromCSV(string filelocation)
         {
             List<CSVData> csvData = new List<CSVData>();
@@ -68,6 +69,7 @@ namespace NRApiClient.Helpers
             }
             return csvData;
         }
+        //Mapping MetaData for the JSONModel
         public static List<Models.JSONModel._MetaData> getMetadataForImport()
         {
             List<Models.JSONModel._MetaData> metadataList = new List<JSONModel._MetaData>();
@@ -608,10 +610,12 @@ namespace NRApiClient.Helpers
 
             return metadataList;
         }
+        //Mapping CaseData for the JSONModel based on the CSVData object
         public static List<Models.JSONModel._CaseData> getCasedataForImport(List<CSVData> csvdata)
         {
             List<Models.JSONModel._CaseData> casedataList = new List<JSONModel._CaseData>();
             
+            //To be used in mapping Value(Text) based CSV data to Key(Code) valued data needed for the JSON import
             Dictionary<string, string> singleChoiceVals = new Dictionary<string, string>();
             singleChoiceVals.Add("1", "1 Not at all likely");
             singleChoiceVals.Add("2", "2");
@@ -619,6 +623,7 @@ namespace NRApiClient.Helpers
             singleChoiceVals.Add("4", "4");
             singleChoiceVals.Add("5", "5 Very likely");
 
+            //To be used in mapping Value(Text) based CSV data to Key(Code) valued data needed for the JSON import
             Dictionary<string, string> multiChoiceVals = new Dictionary<string, string>();
             multiChoiceVals.Add("1", "Dapresy Telecom");
             multiChoiceVals.Add("2", "Don't know");
